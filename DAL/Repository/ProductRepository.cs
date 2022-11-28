@@ -1,5 +1,6 @@
 ﻿using Logic.Domain.Products;
 using Logic.Interfaces;
+using System.Linq;
 
 namespace DAL.Repository
 {
@@ -12,7 +13,8 @@ namespace DAL.Repository
         }
         public IEnumerable<Product> GetAll()
         {
-            throw new NotImplementedException();
+            return _context.Set<Product>().ToList();
+            //return _context.Set<Product>().Take(10).ToList(); //возвращает 10 единиц
         }
         public Product FindById(int id)
         {

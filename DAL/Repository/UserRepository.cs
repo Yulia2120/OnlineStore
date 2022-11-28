@@ -1,10 +1,5 @@
 ﻿using Logic.Domain.Users;
 using Logic.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DAL.Repository
 {
@@ -19,9 +14,9 @@ namespace DAL.Repository
   
         }
 
-        public IEnumerable<User> GetAll()
+        public IAsyncEnumerable<User> GetAll()
         {
-            throw new NotImplementedException();
+            return _context.Set<User>().AsAsyncEnumerable();
         }
     }
 }

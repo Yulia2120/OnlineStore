@@ -11,7 +11,7 @@ namespace DAL
     {
         public static void SeedDatabase(Context context)
         {
-            context.Database.EnsureCreated();
+           context.Database.EnsureCreated();
             if (context.Products.Count() == 0 && context.Categories.Count() == 0)
             {
 

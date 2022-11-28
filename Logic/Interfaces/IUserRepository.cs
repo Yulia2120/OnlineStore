@@ -9,6 +9,6 @@ namespace Logic.Interfaces
 {
     public interface IUserRepository
     {
-        IEnumerable<User> GetAll();
+        IAsyncEnumerable<User> GetAll();
     }
 }
