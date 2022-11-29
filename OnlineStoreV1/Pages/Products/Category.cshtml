@@ -2,5 +2,579 @@
 @model OnlineStoreV1.Pages.Products.CategoryModel
 @{
 }
-<h1>Category</h1>
-<h3>@Model.products.Count()</h3>
+ <div class="container">
+      <ul
+        class="breadcrumb"
+        itemscope=""
+        itemtype="https://schema.org/BreadcrumbList">
+        <li
+          itemprop="itemListElement"
+          itemscope=""
+          itemtype="https://schema.org/ListItem">
+          <a itemprop="item" asp-area="" asp-page="/Index">
+            <span itemprop="name">Главная</span>
+          </a>
+          <meta itemprop="position" content="1"/>
+        </li>
+        <li>
+          <span itemprop="name" asp-area="" asp-page="/Products/Category">Каталог</span>
+        </li>
+      </ul>
+    </div>
+     <section class="container catalog">
+         <h1 class="h2">Каталог</h1>
+      <div class="btn btn-light open-filter">Фильтр товаров</div>
+      <div class="row">
+        <aside class="col-lg-3 aside">
+          <div class="aside-filter" id="filter">
+            <div class="aside-filter-menu">
+              <h4>Категории</h4>
+              <ul class="nav flex-column">
+                <li>
+                  <a href="https://skif-knives.com/shop/folding-knives/"
+                    >Складные ножи</a
+                  >
+                </li>
+                <li>
+                  <a href="https://skif-knives.com/shop/stok/">Сток товаров</a>
+                </li>
+              </ul>
+            </div>
+            <div class="aside-filter-group">
+              <h4>Цена</h4>
+              <div class="form-group">
+                <div class="row">
+                  <div class="col">
+                    <input
+                      type="number"
+                      min="0"
+                      step="1"
+                      class="form-control number-without-control"
+                      placeholder="От..."
+                      value=""
+                      id="price-min"
+                    />
+                  </div>
+                  <div class="col">
+                    <input
+                      type="number"
+                      min="0"
+                      step="1"
+                      class="form-control number-without-control"
+                      placeholder="До..."
+                      value=""
+                      id="price-max"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="aside-filter-group text-right">
+              <button class="btn-submit">Выбрать</button>
+            </div>
+          </div>
+        </aside>
+       <article class="col-lg-9">
+           <div class = "product row">
+                @foreach(var item in Model.Products)
+                {
+                 <div class="col-xl-4 col-lg-6 col-md-6">
+                      <div class="product-cart">
+                          <div class="product-cart-image">
+                               <a href="#">
+                                    <img @item.ImgUrl/>
+                               </a>
+                          </div>
+                            <div class="product-cart-caption">
+                                  <h4>
+                    <a href="#">@item.Name</a>
+                  </h4>
+                    <div class="availability yes">В наличии</div>
+                    <div class="characteristics">
+                    <ul>
+                      <li>@item.DescrLi</li>
+                      <li>@item.DescrLiSecond</li>
+                    </ul>
+                  </div>
+                  <div class="rating">
+                    <div class="rating-stars jq-stars" data-rating="5">
+                      <div class="jq-star" style="width: 15px; height: 15px">
+                        <svg
+                          version="1.0"
+                          class="jq-star-svg"
+                          shape-rendering="geometricPrecision"
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="550px"
+                          height="500.2px"
+                          viewBox="0 146.8 550 500.2"
+                          style="
+                            enable-background: new 0 0 550 500.2;
+                            stroke-width: 4px;
+                          "
+                          xml:space="preserve"
+                        >
+                          <style type="text/css">
+                            .svg-empty-555 {
+                              fill: url(#555_SVGID_1_);
+                            }
+                            .svg-hovered-555 {
+                              fill: url(#555_SVGID_2_);
+                            }
+                            .svg-active-555 {
+                              fill: url(#555_SVGID_3_);
+                            }
+                            .svg-rated-555 {
+                              fill: #ffc926;
+                            }
+                          </style>
+                          <linearGradient
+                            id="555_SVGID_1_"
+                            gradientUnits="userSpaceOnUse"
+                            x1="0"
+                            y1="-50"
+                            x2="0"
+                            y2="500"
+                          >
+                            <stop offset="0" style="stop-color: #dbdbdb"></stop>
+                            <stop offset="1" style="stop-color: #dbdbdb"></stop>
+                          </linearGradient>
+                          <linearGradient
+                            id="555_SVGID_2_"
+                            gradientUnits="userSpaceOnUse"
+                            x1="0"
+                            y1="-50"
+                            x2="0"
+                            y2="500"
+                          >
+                            <stop offset="0" style="stop-color: #ffc926"></stop>
+                            <stop offset="1" style="stop-color: #ffc926"></stop>
+                          </linearGradient>
+                          <linearGradient
+                            id="555_SVGID_3_"
+                            gradientUnits="userSpaceOnUse"
+                            x1="0"
+                            y1="-50"
+                            x2="0"
+                            y2="500"
+                          >
+                            <stop offset="0" style="stop-color: #ffc926"></stop>
+                            <stop offset="1" style="stop-color: #ffc926"></stop>
+                          </linearGradient>
+                          <path
+                            data-side="center"
+                            class="svg-empty-555"
+                            d="M520.9,336.5c-3.8-11.8-14.2-20.5-26.5-22.2l-140.9-20.5l-63-127.7 c-5.5-11.2-16.8-18.2-29.3-18.2c-12.5,0-23.8,7-29.3,18.2l-63,127.7L28,314.2C15.7,316,5.4,324.7,1.6,336.5S1,361.3,9.9,370 l102,99.4l-24,140.3c-2.1,12.3,2.9,24.6,13,32c5.7,4.2,12.4,6.2,19.2,6.2c5.2,0,10.5-1.2,15.2-3.8l126-66.3l126,66.2 c4.8,2.6,10,3.8,15.2,3.8c6.8,0,13.5-2.1,19.2-6.2c10.1-7.3,15.1-19.7,13-32l-24-140.3l102-99.4 C521.6,361.3,524.8,348.3,520.9,336.5z"
+                            style="stroke: black; fill: transparent"
+                          ></path>
+                          <path
+                            data-side="right"
+                            class="svg-active-555"
+                            d="M520.9,336.5c-3.8-11.8-14.2-20.5-26.5-22.2l-140.9-20.5l-63-127.7 c-5.5-11.2-16.8-18.2-29.3-18.2c-12.5,0-23.8,7-29.3,18.2l-63,127.7L28,314.2C15.7,316,5.4,324.7,1.6,336.5S1,361.3,9.9,370 l102,99.4l-24,140.3c-2.1,12.3,2.9,24.6,13,32c5.7,4.2,12.4,6.2,19.2,6.2c5.2,0,10.5-1.2,15.2-3.8l126-66.3l126,66.2 c4.8,2.6,10,3.8,15.2,3.8c6.8,0,13.5-2.1,19.2-6.2c10.1-7.3,15.1-19.7,13-32l-24-140.3l102-99.4 C521.6,361.3,524.8,348.3,520.9,336.5z"
+                            style="stroke-opacity: 0"
+                          ></path>
+                          <path
+                            data-side="left"
+                            class="svg-active-555"
+                            d="M121,648c-7.3,0-14.1-2.2-19.8-6.4c-10.4-7.6-15.6-20.3-13.4-33l24-139.9l-101.6-99 c-9.1-8.9-12.4-22.4-8.6-34.5c3.9-12.1,14.6-21.1,27.2-23l140.4-20.4L232,164.6c5.7-11.6,17.3-18.8,30.2-16.8c0.6,0,1,0.4,1,1 v430.1c0,0.4-0.2,0.7-0.5,0.9l-126,66.3C132,646.6,126.6,648,121,648z"
+                            style="stroke: black; stroke-opacity: 0"
+                          ></path>
+                        </svg>
+                      </div>
+                      <div class="jq-star" style="width: 15px; height: 15px">
+                        <svg
+                          version="1.0"
+                          class="jq-star-svg"
+                          shape-rendering="geometricPrecision"
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="550px"
+                          height="500.2px"
+                          viewBox="0 146.8 550 500.2"
+                          style="
+                            enable-background: new 0 0 550 500.2;
+                            stroke-width: 4px;
+                          "
+                          xml:space="preserve"
+                        >
+                          <style type="text/css">
+                            .svg-empty-555 {
+                              fill: url(#555_SVGID_1_);
+                            }
+                            .svg-hovered-555 {
+                              fill: url(#555_SVGID_2_);
+                            }
+                            .svg-active-555 {
+                              fill: url(#555_SVGID_3_);
+                            }
+                            .svg-rated-555 {
+                              fill: #ffc926;
+                            }
+                          </style>
+                          <linearGradient
+                            id="555_SVGID_1_"
+                            gradientUnits="userSpaceOnUse"
+                            x1="0"
+                            y1="-50"
+                            x2="0"
+                            y2="500"
+                          >
+                            <stop offset="0" style="stop-color: #dbdbdb"></stop>
+                            <stop offset="1" style="stop-color: #dbdbdb"></stop>
+                          </linearGradient>
+                          <linearGradient
+                            id="555_SVGID_2_"
+                            gradientUnits="userSpaceOnUse"
+                            x1="0"
+                            y1="-50"
+                            x2="0"
+                            y2="500"
+                          >
+                            <stop offset="0" style="stop-color: #ffc926"></stop>
+                            <stop offset="1" style="stop-color: #ffc926"></stop>
+                          </linearGradient>
+                          <linearGradient
+                            id="555_SVGID_3_"
+                            gradientUnits="userSpaceOnUse"
+                            x1="0"
+                            y1="-50"
+                            x2="0"
+                            y2="500"
+                          >
+                            <stop offset="0" style="stop-color: #ffc926"></stop>
+                            <stop offset="1" style="stop-color: #ffc926"></stop>
+                          </linearGradient>
+                          <path
+                            data-side="center"
+                            class="svg-empty-555"
+                            d="M520.9,336.5c-3.8-11.8-14.2-20.5-26.5-22.2l-140.9-20.5l-63-127.7 c-5.5-11.2-16.8-18.2-29.3-18.2c-12.5,0-23.8,7-29.3,18.2l-63,127.7L28,314.2C15.7,316,5.4,324.7,1.6,336.5S1,361.3,9.9,370 l102,99.4l-24,140.3c-2.1,12.3,2.9,24.6,13,32c5.7,4.2,12.4,6.2,19.2,6.2c5.2,0,10.5-1.2,15.2-3.8l126-66.3l126,66.2 c4.8,2.6,10,3.8,15.2,3.8c6.8,0,13.5-2.1,19.2-6.2c10.1-7.3,15.1-19.7,13-32l-24-140.3l102-99.4 C521.6,361.3,524.8,348.3,520.9,336.5z"
+                            style="stroke: black; fill: transparent"
+                          ></path>
+                          <path
+                            data-side="right"
+                            class="svg-active-555"
+                            d="M520.9,336.5c-3.8-11.8-14.2-20.5-26.5-22.2l-140.9-20.5l-63-127.7 c-5.5-11.2-16.8-18.2-29.3-18.2c-12.5,0-23.8,7-29.3,18.2l-63,127.7L28,314.2C15.7,316,5.4,324.7,1.6,336.5S1,361.3,9.9,370 l102,99.4l-24,140.3c-2.1,12.3,2.9,24.6,13,32c5.7,4.2,12.4,6.2,19.2,6.2c5.2,0,10.5-1.2,15.2-3.8l126-66.3l126,66.2 c4.8,2.6,10,3.8,15.2,3.8c6.8,0,13.5-2.1,19.2-6.2c10.1-7.3,15.1-19.7,13-32l-24-140.3l102-99.4 C521.6,361.3,524.8,348.3,520.9,336.5z"
+                            style="stroke-opacity: 0"
+                          ></path>
+                          <path
+                            data-side="left"
+                            class="svg-active-555"
+                            d="M121,648c-7.3,0-14.1-2.2-19.8-6.4c-10.4-7.6-15.6-20.3-13.4-33l24-139.9l-101.6-99 c-9.1-8.9-12.4-22.4-8.6-34.5c3.9-12.1,14.6-21.1,27.2-23l140.4-20.4L232,164.6c5.7-11.6,17.3-18.8,30.2-16.8c0.6,0,1,0.4,1,1 v430.1c0,0.4-0.2,0.7-0.5,0.9l-126,66.3C132,646.6,126.6,648,121,648z"
+                            style="stroke: black; stroke-opacity: 0"
+                          ></path>
+                        </svg>
+                      </div>
+                      <div class="jq-star" style="width: 15px; height: 15px">
+                        <svg
+                          version="1.0"
+                          class="jq-star-svg"
+                          shape-rendering="geometricPrecision"
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="550px"
+                          height="500.2px"
+                          viewBox="0 146.8 550 500.2"
+                          style="
+                            enable-background: new 0 0 550 500.2;
+                            stroke-width: 4px;
+                          "
+                          xml:space="preserve"
+                        >
+                          <style type="text/css">
+                            .svg-empty-555 {
+                              fill: url(#555_SVGID_1_);
+                            }
+                            .svg-hovered-555 {
+                              fill: url(#555_SVGID_2_);
+                            }
+                            .svg-active-555 {
+                              fill: url(#555_SVGID_3_);
+                            }
+                            .svg-rated-555 {
+                              fill: #ffc926;
+                            }
+                          </style>
+                          <linearGradient
+                            id="555_SVGID_1_"
+                            gradientUnits="userSpaceOnUse"
+                            x1="0"
+                            y1="-50"
+                            x2="0"
+                            y2="500"
+                          >
+                            <stop offset="0" style="stop-color: #dbdbdb"></stop>
+                            <stop offset="1" style="stop-color: #dbdbdb"></stop>
+                          </linearGradient>
+                          <linearGradient
+                            id="555_SVGID_2_"
+                            gradientUnits="userSpaceOnUse"
+                            x1="0"
+                            y1="-50"
+                            x2="0"
+                            y2="500"
+                          >
+                            <stop offset="0" style="stop-color: #ffc926"></stop>
+                            <stop offset="1" style="stop-color: #ffc926"></stop>
+                          </linearGradient>
+                          <linearGradient
+                            id="555_SVGID_3_"
+                            gradientUnits="userSpaceOnUse"
+                            x1="0"
+                            y1="-50"
+                            x2="0"
+                            y2="500"
+                          >
+                            <stop offset="0" style="stop-color: #ffc926"></stop>
+                            <stop offset="1" style="stop-color: #ffc926"></stop>
+                          </linearGradient>
+                          <path
+                            data-side="center"
+                            class="svg-empty-555"
+                            d="M520.9,336.5c-3.8-11.8-14.2-20.5-26.5-22.2l-140.9-20.5l-63-127.7 c-5.5-11.2-16.8-18.2-29.3-18.2c-12.5,0-23.8,7-29.3,18.2l-63,127.7L28,314.2C15.7,316,5.4,324.7,1.6,336.5S1,361.3,9.9,370 l102,99.4l-24,140.3c-2.1,12.3,2.9,24.6,13,32c5.7,4.2,12.4,6.2,19.2,6.2c5.2,0,10.5-1.2,15.2-3.8l126-66.3l126,66.2 c4.8,2.6,10,3.8,15.2,3.8c6.8,0,13.5-2.1,19.2-6.2c10.1-7.3,15.1-19.7,13-32l-24-140.3l102-99.4 C521.6,361.3,524.8,348.3,520.9,336.5z"
+                            style="stroke: black; fill: transparent"
+                          ></path>
+                          <path
+                            data-side="right"
+                            class="svg-active-555"
+                            d="M520.9,336.5c-3.8-11.8-14.2-20.5-26.5-22.2l-140.9-20.5l-63-127.7 c-5.5-11.2-16.8-18.2-29.3-18.2c-12.5,0-23.8,7-29.3,18.2l-63,127.7L28,314.2C15.7,316,5.4,324.7,1.6,336.5S1,361.3,9.9,370 l102,99.4l-24,140.3c-2.1,12.3,2.9,24.6,13,32c5.7,4.2,12.4,6.2,19.2,6.2c5.2,0,10.5-1.2,15.2-3.8l126-66.3l126,66.2 c4.8,2.6,10,3.8,15.2,3.8c6.8,0,13.5-2.1,19.2-6.2c10.1-7.3,15.1-19.7,13-32l-24-140.3l102-99.4 C521.6,361.3,524.8,348.3,520.9,336.5z"
+                            style="stroke-opacity: 0"
+                          ></path>
+                          <path
+                            data-side="left"
+                            class="svg-active-555"
+                            d="M121,648c-7.3,0-14.1-2.2-19.8-6.4c-10.4-7.6-15.6-20.3-13.4-33l24-139.9l-101.6-99 c-9.1-8.9-12.4-22.4-8.6-34.5c3.9-12.1,14.6-21.1,27.2-23l140.4-20.4L232,164.6c5.7-11.6,17.3-18.8,30.2-16.8c0.6,0,1,0.4,1,1 v430.1c0,0.4-0.2,0.7-0.5,0.9l-126,66.3C132,646.6,126.6,648,121,648z"
+                            style="stroke: black; stroke-opacity: 0"
+                          ></path>
+                        </svg>
+                      </div>
+                      <div class="jq-star" style="width: 15px; height: 15px">
+                        <svg
+                          version="1.0"
+                          class="jq-star-svg"
+                          shape-rendering="geometricPrecision"
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="550px"
+                          height="500.2px"
+                          viewBox="0 146.8 550 500.2"
+                          style="
+                            enable-background: new 0 0 550 500.2;
+                            stroke-width: 4px;
+                          "
+                          xml:space="preserve"
+                        >
+                          <style type="text/css">
+                            .svg-empty-555 {
+                              fill: url(#555_SVGID_1_);
+                            }
+                            .svg-hovered-555 {
+                              fill: url(#555_SVGID_2_);
+                            }
+                            .svg-active-555 {
+                              fill: url(#555_SVGID_3_);
+                            }
+                            .svg-rated-555 {
+                              fill: #ffc926;
+                            }
+                          </style>
+                          <linearGradient
+                            id="555_SVGID_1_"
+                            gradientUnits="userSpaceOnUse"
+                            x1="0"
+                            y1="-50"
+                            x2="0"
+                            y2="500"
+                          >
+                            <stop offset="0" style="stop-color: #dbdbdb"></stop>
+                            <stop offset="1" style="stop-color: #dbdbdb"></stop>
+                          </linearGradient>
+                          <linearGradient
+                            id="555_SVGID_2_"
+                            gradientUnits="userSpaceOnUse"
+                            x1="0"
+                            y1="-50"
+                            x2="0"
+                            y2="500"
+                          >
+                            <stop offset="0" style="stop-color: #ffc926"></stop>
+                            <stop offset="1" style="stop-color: #ffc926"></stop>
+                          </linearGradient>
+                          <linearGradient
+                            id="555_SVGID_3_"
+                            gradientUnits="userSpaceOnUse"
+                            x1="0"
+                            y1="-50"
+                            x2="0"
+                            y2="500"
+                          >
+                            <stop offset="0" style="stop-color: #ffc926"></stop>
+                            <stop offset="1" style="stop-color: #ffc926"></stop>
+                          </linearGradient>
+                          <path
+                            data-side="center"
+                            class="svg-empty-555"
+                            d="M520.9,336.5c-3.8-11.8-14.2-20.5-26.5-22.2l-140.9-20.5l-63-127.7 c-5.5-11.2-16.8-18.2-29.3-18.2c-12.5,0-23.8,7-29.3,18.2l-63,127.7L28,314.2C15.7,316,5.4,324.7,1.6,336.5S1,361.3,9.9,370 l102,99.4l-24,140.3c-2.1,12.3,2.9,24.6,13,32c5.7,4.2,12.4,6.2,19.2,6.2c5.2,0,10.5-1.2,15.2-3.8l126-66.3l126,66.2 c4.8,2.6,10,3.8,15.2,3.8c6.8,0,13.5-2.1,19.2-6.2c10.1-7.3,15.1-19.7,13-32l-24-140.3l102-99.4 C521.6,361.3,524.8,348.3,520.9,336.5z"
+                            style="stroke: black; fill: transparent"
+                          ></path>
+                          <path
+                            data-side="right"
+                            class="svg-active-555"
+                            d="M520.9,336.5c-3.8-11.8-14.2-20.5-26.5-22.2l-140.9-20.5l-63-127.7 c-5.5-11.2-16.8-18.2-29.3-18.2c-12.5,0-23.8,7-29.3,18.2l-63,127.7L28,314.2C15.7,316,5.4,324.7,1.6,336.5S1,361.3,9.9,370 l102,99.4l-24,140.3c-2.1,12.3,2.9,24.6,13,32c5.7,4.2,12.4,6.2,19.2,6.2c5.2,0,10.5-1.2,15.2-3.8l126-66.3l126,66.2 c4.8,2.6,10,3.8,15.2,3.8c6.8,0,13.5-2.1,19.2-6.2c10.1-7.3,15.1-19.7,13-32l-24-140.3l102-99.4 C521.6,361.3,524.8,348.3,520.9,336.5z"
+                            style="stroke-opacity: 0"
+                          ></path>
+                          <path
+                            data-side="left"
+                            class="svg-active-555"
+                            d="M121,648c-7.3,0-14.1-2.2-19.8-6.4c-10.4-7.6-15.6-20.3-13.4-33l24-139.9l-101.6-99 c-9.1-8.9-12.4-22.4-8.6-34.5c3.9-12.1,14.6-21.1,27.2-23l140.4-20.4L232,164.6c5.7-11.6,17.3-18.8,30.2-16.8c0.6,0,1,0.4,1,1 v430.1c0,0.4-0.2,0.7-0.5,0.9l-126,66.3C132,646.6,126.6,648,121,648z"
+                            style="stroke: black; stroke-opacity: 0"
+                          ></path>
+                        </svg>
+                      </div>
+                      <div class="jq-star" style="width: 15px; height: 15px">
+                        <svg
+                          version="1.0"
+                          class="jq-star-svg"
+                          shape-rendering="geometricPrecision"
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="550px"
+                          height="500.2px"
+                          viewBox="0 146.8 550 500.2"
+                          style="
+                            enable-background: new 0 0 550 500.2;
+                            stroke-width: 4px;
+                          "
+                          xml:space="preserve"
+                        >
+                          <style type="text/css">
+                            .svg-empty-555 {
+                              fill: url(#555_SVGID_1_);
+                            }
+                            .svg-hovered-555 {
+                              fill: url(#555_SVGID_2_);
+                            }
+                            .svg-active-555 {
+                              fill: url(#555_SVGID_3_);
+                            }
+                            .svg-rated-555 {
+                              fill: #ffc926;
+                            }
+                          </style>
+                          <linearGradient
+                            id="555_SVGID_1_"
+                            gradientUnits="userSpaceOnUse"
+                            x1="0"
+                            y1="-50"
+                            x2="0"
+                            y2="500"
+                          >
+                            <stop offset="0" style="stop-color: #dbdbdb"></stop>
+                            <stop offset="1" style="stop-color: #dbdbdb"></stop>
+                          </linearGradient>
+                          <linearGradient
+                            id="555_SVGID_2_"
+                            gradientUnits="userSpaceOnUse"
+                            x1="0"
+                            y1="-50"
+                            x2="0"
+                            y2="500"
+                          >
+                            <stop offset="0" style="stop-color: #ffc926"></stop>
+                            <stop offset="1" style="stop-color: #ffc926"></stop>
+                          </linearGradient>
+                          <linearGradient
+                            id="555_SVGID_3_"
+                            gradientUnits="userSpaceOnUse"
+                            x1="0"
+                            y1="-50"
+                            x2="0"
+                            y2="500"
+                          >
+                            <stop offset="0" style="stop-color: #ffc926"></stop>
+                            <stop offset="1" style="stop-color: #ffc926"></stop>
+                          </linearGradient>
+                          <path
+                            data-side="center"
+                            class="svg-empty-555"
+                            d="M520.9,336.5c-3.8-11.8-14.2-20.5-26.5-22.2l-140.9-20.5l-63-127.7 c-5.5-11.2-16.8-18.2-29.3-18.2c-12.5,0-23.8,7-29.3,18.2l-63,127.7L28,314.2C15.7,316,5.4,324.7,1.6,336.5S1,361.3,9.9,370 l102,99.4l-24,140.3c-2.1,12.3,2.9,24.6,13,32c5.7,4.2,12.4,6.2,19.2,6.2c5.2,0,10.5-1.2,15.2-3.8l126-66.3l126,66.2 c4.8,2.6,10,3.8,15.2,3.8c6.8,0,13.5-2.1,19.2-6.2c10.1-7.3,15.1-19.7,13-32l-24-140.3l102-99.4 C521.6,361.3,524.8,348.3,520.9,336.5z"
+                            style="stroke: black; fill: transparent"
+                          ></path>
+                          <path
+                            data-side="right"
+                            class="svg-active-555"
+                            d="M520.9,336.5c-3.8-11.8-14.2-20.5-26.5-22.2l-140.9-20.5l-63-127.7 c-5.5-11.2-16.8-18.2-29.3-18.2c-12.5,0-23.8,7-29.3,18.2l-63,127.7L28,314.2C15.7,316,5.4,324.7,1.6,336.5S1,361.3,9.9,370 l102,99.4l-24,140.3c-2.1,12.3,2.9,24.6,13,32c5.7,4.2,12.4,6.2,19.2,6.2c5.2,0,10.5-1.2,15.2-3.8l126-66.3l126,66.2 c4.8,2.6,10,3.8,15.2,3.8c6.8,0,13.5-2.1,19.2-6.2c10.1-7.3,15.1-19.7,13-32l-24-140.3l102-99.4 C521.6,361.3,524.8,348.3,520.9,336.5z"
+                            style="stroke-opacity: 0"
+                          ></path>
+                          <path
+                            data-side="left"
+                            class="svg-active-555"
+                            d="M121,648c-7.3,0-14.1-2.2-19.8-6.4c-10.4-7.6-15.6-20.3-13.4-33l24-139.9l-101.6-99 c-9.1-8.9-12.4-22.4-8.6-34.5c3.9-12.1,14.6-21.1,27.2-23l140.4-20.4L232,164.6c5.7-11.6,17.3-18.8,30.2-16.8c0.6,0,1,0.4,1,1 v430.1c0,0.4-0.2,0.7-0.5,0.9l-126,66.3C132,646.6,126.6,648,121,648z"
+                            style="stroke: black; stroke-opacity: 0"
+                          ></path>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                    <div class="price h2">
+                    @item.Price <span class="currency"> грн</span>
+                  </div>
+                   <a href="#" data-id="335" class="add-to-cart btn btn-danger"
+                    >Купить</a
+                  >
+                            </div>
+                      </div>
+                 </div>
+                }
+            </div>
+            <ul class="pagination">
+            <li class="page-item">
+              <a
+                href="https://skif-knives.com/shop/?page=1"
+                class="page-link active"
+                >01</a
+              >
+            </li>
+            <li class="page-item">
+              <a href="https://skif-knives.com/shop/?page=2" class="page-link"
+                >02</a
+              >
+            </li>
+            <li class="page-item">
+              <a href="https://skif-knives.com/shop/?page=3" class="page-link"
+                >03</a
+              >
+            </li>
+            <li class="page-item">
+              <a href="https://skif-knives.com/shop/?page=4" class="page-link"
+                >04</a
+              >
+            </li>
+            <li class="page-item">
+              <a href="https://skif-knives.com/shop/?page=5" class="page-link"
+                >05</a
+              >
+            </li>
+            <li class="page-item">
+              <a href="https://skif-knives.com/shop/?page=6" class="page-link"
+                >06</a
+              >
+            </li>
+            <li class="page-item">
+              <a href="https://skif-knives.com/shop/?page=7" class="page-link"
+                >07</a
+              >
+            </li>
+            <li class="page-item">
+              <a href="https://skif-knives.com/shop/?page=8" class="page-link"
+                >08</a
+              >
+            </li>
+            <li class="page-item">
+              <a href="https://skif-knives.com/shop/?page=9" class="page-link"
+                >09</a
+              >
+            </li>
+            <li class="page-item next">
+              <a href="https://skif-knives.com/shop/?page=2" class="page-link"
+                ><span></span
+              ></a>
+            </li>
+          </ul>
+          </article>
+          </div>
+     </section>

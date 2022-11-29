@@ -9,10 +9,193 @@
     <link rel="stylesheet" href="~/OnlineStoreV1.styles.css" asp-append-version="true" />
 </head>
 <body>
-    <header>
+    <header class="container-fluid header">
+      <div class="container header-top">
+        <div class="header-top-menu">
+          <ul
+            class="nav"
+            itemscope=""
+            itemtype="http://www.schema.org/SiteNavigationElement"
+          >
+            <li itemprop="name" class="nav-item">
+              <a class="nav-link" href="#" itemprop="url">
+                Доставка и оплата
+              </a>
+            </li>
+            <li itemprop="name" class="nav-item">
+              <a class="nav-link" href="#" itemprop="url">
+                Гарантия и сервис
+              </a>
+            </li>
+            <li itemprop="name" class="nav-item">
+              <a class="nav-link" href="#" itemprop="url"> О нас </a>
+            </li>
+          </ul>
+        </div>
+        <div class="header-top-lang">
+          <a href="#"><span>УКР</span></a>
+          /
+          <a href="#"><span class="active">РУС</span></a>
+          / <a href="#"><span>ENG</span></a>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row no-gutters header-info">
+          <div class="col-lg-4 header-info-logo">
+            <a href="#">
+              <img
+                src="/images/skif-logo.png"
+                alt="SKIF"
+                data-pagespeed-url-hash="1929384135"
+                onload="pagespeed.CriticalImages.checkImageForCriticality(this);"
+            /></a>
+            <div>
+              Официальный сайт <br />
+              торговой марки SKIF
+            </div>
+          </div>
+          <div class="col-lg-5">
+            <div class="header-info-contacts">
+              <div>
+                <div class="header-info-contacts-content">
+                  <a href="tel:0800604433">0 800 60 44 33</a>
+                </div>
+                <div>
+                  Прием заказов по телефону: с 09.00 до 20.00 без выходных
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 header-info-btn">
+            <button
+              type="button"
+              class="btn btn-light"
+              data-toggle="modal"
+              data-target="#Modal"
+            >
+              Заказать звонок
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="container header-nav">
+        <nav class="navbar navbar-expand-lg">
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="burger"></span>
+          </button>
+          <a class="navbar-brand" href="/"><span class="logo-colour"></span></a>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="xs-menu-contacts">
+              <a
+                class="close"
+                data-toggle="collapse"
+                data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="true"
+                aria-label="Toggle navigation"
+              ></a>
+              <div><a href="tel:+0800604433">0 800 60 44 33</a></div>
+              <div class="xs-menu-contacts-item">
+                Прием заказов по телефону: <br />
+                с 09.00 до 20.00 без выходных
+              </div>
+            </div>
+            <ul
+              class="navbar-nav"
+              itemscope=""
+              itemtype="https://www.schema.org/SiteNavigationElement"
+            >
+              <li itemprop="name" class="nav-item">
+                <a class="nav-link" asp-area="" asp-page="/Products/Category">Каталог товаров</a>
+              </li>
+              <li itemprop="name" class="nav-item">
+                <a class="nav-link" asp-area="" asp-page="/Products/"> Публикации </a>
+              </li>
+              <li itemprop="name" class="nav-item">
+                <a class="nav-link" asp-area="" asp-page="/Users/Users"> Контакты </a>
+              </li>
+              <li class="menu-xs">
+                <div class="dropdown-divider"></div>
+                <div class="nav-item">
+                  <a class="nav-link" href="#"> Доставка и оплата </a>
+                </div>
+                <div class="nav-item">
+                  <a class="nav-link" href="#"> Гарантия и сервис </a>
+                </div>
+                <div class="header-top-lang">
+                  <a href="#"><span>УКР</span></a>
+                  /
+                  <a href="#"><span class="active">РУС</span></a>
+                  /
+                  <a href="#"><span>ENG</span></a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <div class="search" id="search">
+          <input
+            name="search"
+            class="form-control"
+            type="search"
+            value=""
+            placeholder="Поиск по сайту..."
+            aria-label="Поиск по сайту..."
+          />
+          <button
+            type="submit"
+            class="btn search-button search-btn"
+            id="button-search"
+            data-lang="ru"
+          ></button>
+        </div>
+        <div class="cart">
+          <a
+            href="#"
+            class="btn dropdown-toggle"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+            ><span class="header-phone"></span
+          ></a>
+          <div class="dropdown-menu">
+            <a href="tel:0800604433">0 800 60 44 33</a>
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-toggle="modal"
+              data-target="#Modal"
+            >
+              Request a call
+            </button>
+          </div>
+          <a href="#">
+            <span class="quantity cart-quantity">0</span>
+            <span class="cart-btn"></span>
+            <div id="cart" class="cart-content">
+              <div>Ваша корзина</div>
+              <div>
+                <span class="cart-info"
+                  ><span id="cart-products">0</span> товаров - </span
+                ><span id="cart-total">0.00 грн</span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </header>
+   @* <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">OnlineStore</a>
+                <a class="navbar-brand" asp-area="" asp-page="/Index">Skif</a>
                 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -33,16 +216,16 @@
                 </div>
             </div>
         </nav>
-    </header>
+    </header>*@
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer class="border-top ">
         <div class="container">
-            &copy; 2022 - OnlineStore - <a asp-area="" asp-page="/Privacy">Privacy</a>
+            &copy; 2022 - OnlineStore - <a asp-area="" asp-page="/Index">Skif</a>
         </div>
     </footer>
 
@@ -53,3 +236,5 @@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
+
+@*footer text-muted*@

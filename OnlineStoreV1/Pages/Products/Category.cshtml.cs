@@ -13,10 +13,10 @@ namespace OnlineStoreV1.Pages.Products
         {
             _unitOfWork = unitOfWork;
         }
-        public IEnumerable<Product> products { get; set; }
+        public IEnumerable<Product> Products { get; set; }
         public void OnGet()
         {
-            products = _unitOfWork.ProductRepository.GetAll();
+            Products = _unitOfWork.ProductRepository.GetAll();
         }
     }
 }
