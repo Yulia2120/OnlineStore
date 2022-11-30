@@ -114,10 +114,10 @@
               itemtype="https://www.schema.org/SiteNavigationElement"
             >
               <li itemprop="name" class="nav-item">
-                <a class="nav-link" asp-area="" asp-page="/Products/Category">Каталог товаров</a>
+                <a class="nav-link" asp-area="" asp-page="/Products/Catalog">Каталог товаров</a>
               </li>
               <li itemprop="name" class="nav-item">
-                <a class="nav-link" asp-area="" asp-page="/Products/"> Публикации </a>
+                <a class="nav-link" asp-area="" asp-page="/Admin/AdminPanel">ВХОД </a>
               </li>
               <li itemprop="name" class="nav-item">
                 <a class="nav-link" asp-area="" asp-page="/Users/Users"> Контакты </a>
@@ -223,11 +223,53 @@
         </main>
     </div>
 
-    <footer class="border-top ">
+ <footer class="container-fluid">
+<div class="container">
+<div class="row no-gutters footer">
+<div class="col-lg-3 footer-logo">
+<div><span class="logo-white"></span></div>
+<div>SKIF © 2018-2022</div>
+</div>
+<div class="col-lg-7">
+<div class="row no-gutters">
+<div class="col-xl-4 col-md-6 footer-menu">
+<ul class="nav flex-column" itemscope="" itemtype="http://www.schema.org/SiteNavigationElement">
+<li><a href="https://skif-knives.com/ru/shop/folding-knives/">Складные ножи</a></li>
+<li><a href="https://skif-knives.com/ru/shop/stok/">Сток товаров</a></li>
+<li><a href="https://skif-knives.com/ru/catalog/">Архив</a></li>
+</ul>
+</div>
+<div class="col-xl-4 col-lg-6 col-md-6 footer-addition">
+<ul class="nav flex-column" itemscope="" itemtype="http://www.schema.org/SiteNavigationElement">
+<li><a href="https://skif-knives.com/ru/delivery/">Доставка и оплата</a></li>
+<li><a href="https://skif-knives.com/ru/service/">Гарантия и сервис</a></li>
+<li><a href="ru/publications/">Публикации</a></li>
+<li><a href="ru/contacts/">Контакты</a></li>
+</ul>
+</div>
+<div class="col-xl-4 col-lg-6 footer-contacts">
+<div class="recept">Прием заказов по телефону:</div>
+<div><a href="tel:0800604433">0 800 60 44 33</a></div>
+<div>с 09.00 до 20.00 без выходных</div>
+</div>
+</div>
+</div>
+<div class="col-lg-2 footer-feedback">
+<button type="button" class="btn btn-light" data-toggle="modal" data-target="#Modal">Обратная связь</button>
+<div class="social-icon">
+<a href="https://www.facebook.com/SKIFknives/" rel="nofollow"><img alt="facebook icon" width="100%" height="20px" src="/images/facebook.png" onerror="this.onerror=null;pagespeed.lazyLoadImages.loadIfVisibleAndMaybeBeacon(this);"></a>
+<a href="https://www.youtube.com/channel/UCffWEHidyHLPEWyoNMz3r5Q" rel="nofollow"><img alt="youtube icon" width="100%" height="18px" src="/images/youtube.png" onerror="this.onerror=null;pagespeed.lazyLoadImages.loadIfVisibleAndMaybeBeacon(this);"></a>
+<a href="https://twitter.com/skifknives" rel="nofollow"><img alt="twitter icon" width="100%" height="20px" src="/images/twitter.png" onerror="this.onerror=null;pagespeed.lazyLoadImages.loadIfVisibleAndMaybeBeacon(this);"></a>
+</div>
+</div>
+</div>
+</div>
+</footer>
+   @* <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2022 - OnlineStore - <a asp-area="" asp-page="/Index">Skif</a>
         </div>
-    </footer>
+    </footer>*@
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
@@ -237,4 +279,3 @@
 </body>
 </html>
 
-@*footer text-muted*@

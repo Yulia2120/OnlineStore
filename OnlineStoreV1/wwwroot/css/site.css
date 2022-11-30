@@ -14,7 +14,7 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
 }
 /*!fancyBox v2.1.5 fancyapps.com | fancyapps.com/fancybox/#license*/
 .fancybox-wrap,
@@ -9739,7 +9739,7 @@ button {
     display: block;
     width: 80px;
     height: 80px;
-    background: url(../img/spritesheet.png) 0 -316px;
+    background: url(../images/spritesheet.png) 0 -316px;
     background-size: 100%;
 }
 

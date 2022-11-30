@@ -5,11 +5,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace OnlineStoreV1.Pages.Products
 {
-    public class CategoryModel : PageModel
+    public class CatalogModel : PageModel
     {
         IUnitOfWork _unitOfWork;
 
-        public CategoryModel(IUnitOfWork unitOfWork)
+        public CatalogModel(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }

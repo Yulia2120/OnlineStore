@@ -1,10 +1,5 @@
 ﻿using DAL.Repository;
 using Logic.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DAL
 {
@@ -32,5 +27,7 @@ namespace DAL
             }
 
         }
+
+        public void Dispose() => GC.SuppressFinalize(this);
     }
 }
