@@ -47,5 +47,11 @@ namespace DAL.Repository
             }
             return true;
         }
+
+        public async Task<T> UpdateAsync(int? id)
+        {
+            return await _context.Set<T>().FindAsync(id);
+            
+        }
     }
 }

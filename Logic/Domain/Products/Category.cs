@@ -10,7 +10,7 @@ namespace Logic.Domain.Products
             Products = new List<Product>();
 
         }
-
+        //[Required]
         [StringLength(155)]
         public string? Name { get; set; }
         [StringLength(2000)]

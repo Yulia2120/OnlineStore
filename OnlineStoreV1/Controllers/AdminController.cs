@@ -21,18 +21,9 @@ namespace OnlineStoreV1.Controllers
             Categories = await _ofWork.CategoryRepository.GetAllAsync();
             return View();
         }
-        [HttpGet]
-        public async Task<IActionResult> CreateCategory()
-        {
-            //Categories = await _ofWork.CategoryRepository.GetAllAsync();
-            //return View();
-            return View();
-        }
-        [HttpPost]
-        public ActionResult CreateNewCategory(Category category)
-        {
-            return View();
-        }
+      
+        
+        
 
     }
 }

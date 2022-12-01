@@ -1,6 +1,7 @@
 ﻿@page
 @model OnlineStoreV1.Pages.Products.CatalogModel
 @{
+    
 }
  <div class="container">
       <ul
@@ -25,20 +26,21 @@
          <h1 class="h2">Каталог</h1>
       <div class="btn btn-light open-filter">Фильтр товаров</div>
       <div class="row">
+       
         <aside class="col-lg-3 aside">
           <div class="aside-filter" id="filter">
             <div class="aside-filter-menu">
               <h4>Категории</h4>
               <ul class="nav flex-column">
+               @foreach(var item in Model.Products)
+        {
                 <li>
-                  <a href="https://skif-knives.com/shop/folding-knives/"
-                    >Складные ножи</a
+                  <a href="#">@item.Category</a
                   >
                 </li>
-                <li>
-                  <a href="https://skif-knives.com/shop/stok/">Сток товаров</a>
-                </li>
+        }
               </ul>
+            
             </div>
             <div class="aside-filter-group">
               <h4>Цена</h4>

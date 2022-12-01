@@ -31,8 +31,8 @@ namespace Logic.Domain.Products
                     return false;
                 }
             }
-        } 
-        public Category? Category { get; set; }
+        }
+        public Category Category { get; set; } = null!;
 
     }
 }
