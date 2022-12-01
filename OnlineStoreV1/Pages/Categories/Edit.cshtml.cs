@@ -15,18 +15,32 @@ namespace OnlineStoreV1.Pages.Categories
         }
         [BindProperty]
         public Category Category { get; set; }
-        public async Task<IActionResult> OnEdit(int? id)
+        public async Task<IActionResult> OnGet(int? id)
         {
             if (id == null || id == 0)
             {
                 return NotFound();
             }
-            await _unitOfWork.CategoryRepository.UpdateAsync(id);
+            await _unitOfWork.CategoryRepository.Find(id);
             if (id == null)
             {
                 return NotFound();
             }
             return Page();
+        }
+        public async Task<IActionResult> OnPost(Category item)
+        {
+            //if (ModelState.IsValid)
+            //{
+                await _unitOfWork.CategoryRepository.Find(Category.Id);
+            item.Name = Category.Name;
+            item.Description = Category.Description;
+               
+                await _unitOfWork.CategoryRepository.UpdateAsync(item);
+            return RedirectToAction("");
+           // return RedirectToPage("");
+            //}
+            //return Page();
         }
     }
 }

@@ -1,26 +1,27 @@
-﻿@page 
-@model OnlineStoreV1.Pages.Categories.CategoriesModel
-
-
-<form method="post">
+﻿@page
+@model OnlineStoreV1.Pages.Categories.DeleteModel
+@{
+}
+<form method="post" asp-action="Delete">
     <div class="border p-3 mt-4">
         <div class="row pb-2">
             <h2 classs="text-primary">
-                Create Category
+                Delete Category
             </h2>
         </div>
                <hr />   
+    <input type="hidden" asp-for="Category.Id"/>
         <div class="text-danger" asp-validation-summary="ModelOnly"></div> @*установить реквайред на категорию name*@
         <div class="mb-3">
             <label asp-for="Category.Name">Name</label>
-            <input asp-for="Category.Name" class="form-control"></>
+            <input asp-for="Category.Name" disabled class="form-control"></>
         </div>
         <span asp-validation-for="Category.Name"></span>
           <div class="mb-3">
             <label asp-for="Category.Description">Description</label>
-            <input asp-for="Category.Description" class="form-control"></>
+            <input asp-for="Category.Description" disabled class="form-control"></>
         </div>
-        <button type="submit" class="btn btn-danger" style="width:150px">Создать</button>
+        <button type="submit" class="btn btn-danger" style="width:150px">Удалить</button>
         <a asp-page="/Admin/AdminPanel" class="btn btn-secondary" style="width:150px">Назад к списку</a>
     </div>
 </form>

@@ -38,20 +38,20 @@ namespace DAL.Repository
         }
         public async Task<bool> DeleteAsync(T item)
         {
-            var result = await _context.Set<T>()
-              .FirstOrDefaultAsync(e => e.Id == id);
-            if (item != null)
-            {
+            //var result = await _context.Set<T>()
+            //  .FirstOrDefaultAsync(e => e.Id == id);
+            //if (item != null)
+            //{
                 _context.Set<T>().Remove(item);
                 await _context.SaveChangesAsync();
-            }
+           // }
             return true;
         }
 
-        public async Task<T> UpdateAsync(int? id)
+        public async Task<T> Find(int? id)
         {
             return await _context.Set<T>().FindAsync(id);
-            
+
         }
     }
 }
