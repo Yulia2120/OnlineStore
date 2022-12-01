@@ -7,7 +7,12 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
-
+builder.Services.Configure<RouteOptions>(options =>
+{
+  options.LowercaseUrls = true;
+  options.LowercaseQueryStrings = true;
+  options.AppendTrailingSlash = true;
+});
 var connectionString = builder.Configuration.GetConnectionString("DbConnection");
 builder.Services.AddDbContext<Context>(options => options.UseSqlServer(connectionString));
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
@@ -17,7 +22,7 @@ builder.Services.AddScoped<UserService>();
 builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();
-//builder.Services.AddSwaggerGen();
+
 
 var app = builder.Build();
 
@@ -26,8 +31,7 @@ if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error");
     app.UseHsts();
-    //app.UseSwagger();
-    //app.UseSwaggerUI();
+  
 
 }
 
@@ -41,7 +45,7 @@ app.UseAuthorization();
 
 app.MapRazorPages();
 app.MapControllers();
-//app.MapGet("/", () => "Hello World!");
+
 app.UseCors(x => x
         .AllowAnyOrigin()
         .AllowAnyMethod()

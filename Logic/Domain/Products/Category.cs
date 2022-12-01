@@ -5,7 +5,12 @@ namespace Logic.Domain.Products
 {
     public class Category: IIdentity
     {
-        public int Id { get; set; }
+       public Category()
+        {
+            Products = new List<Product>();
+
+        }
+
         [StringLength(155)]
         public string? Name { get; set; }
         [StringLength(2000)]

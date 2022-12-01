@@ -10,10 +10,10 @@ namespace Logic.Services
         {
             _unitOfWork = unitOfWork;
         }
-        public Product GetProduct( int id)
-        {
-            _unitOfWork.ProductRepository.FindById(id);
-            return new Product();
-        }
+        //public Product GetProduct( int id)
+        //{
+        //    _unitOfWork.ProductRepository.FindById(id);
+        //    return new Product();
+        //}
     }
 }

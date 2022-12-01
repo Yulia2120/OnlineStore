@@ -1,0 +1,27 @@
+﻿@page
+@model OnlineStoreV1.Pages.Products.DetailsModel
+@{
+}
+<h2>Details</h2>
+<div class="container">
+      <ul
+        class="breadcrumb"
+        itemscope=""
+        itemtype="https://schema.org/BreadcrumbList">
+        <li
+          itemprop="itemListElement"
+          itemscope=""
+          itemtype="https://schema.org/ListItem">
+          <a itemprop="item" asp-area="" asp-page="/Index">
+            <span itemprop="name">Главная</span>
+          </a>
+          <meta itemprop="position" content="1"/>
+        </li>
+        <li>
+          <span itemprop="name"  asp-page="/Products/Catalog">Каталог</span>
+        </li>
+         <li>
+          <span itemprop="name"  asp-page="/Products/Catalog/Details">Описание</span>
+        </li>
+      </ul>
+    </div>

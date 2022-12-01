@@ -5,20 +5,20 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace OnlineStoreV1.Pages.Products
 {
-    public class CatalogModel : PageModel
+    public class DetailsModel : PageModel
     {
         IUnitOfWork _unitOfWork;
 
-        public CatalogModel(IUnitOfWork unitOfWork)
+        public DetailsModel(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }
 
-        public List<Product> Products { get; private set; }
+        public Product Product { get; private set; }
 
-        public async Task<IActionResult> OnGetAsync()
+        public async Task<IActionResult> OnGetAsync(int id)
         {
-            Products = await _unitOfWork.ProductRepository.GetAllAsync();
+            Product = await _unitOfWork.ProductRepository.GetByIdAsync(id);
             return Page();
         }
     }

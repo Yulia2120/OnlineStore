@@ -28,6 +28,11 @@ namespace DAL
 
         }
 
+        public ICategoryRepository CategoryRepository
+        {
+            get { return new CategoryRepository(_context); }
+        }
+
         public void Dispose() => GC.SuppressFinalize(this);
     }
 }

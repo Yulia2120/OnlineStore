@@ -2,8 +2,8 @@
 
 namespace Logic.Interfaces
 {
-    public interface IProductRepository: IRepository<Product>
+    public interface ICategoryRepository: IRepository<Category>
     {
-       
+
     }
 }

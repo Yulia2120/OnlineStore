@@ -1,3 +1,4 @@
+
 using Logic.Domain.Products;
 using Logic.Interfaces;
 using Microsoft.AspNetCore.Mvc;
@@ -14,11 +15,13 @@ namespace OnlineStoreV1.Pages.Admin
             _unitOfWork = unitOfWork;
         }
 
-        public IEnumerable<Product> Categories { get; private set; }
+        public List<Category> Categories { get; private set; }
 
-        public void OnGet()
+        public async Task<IActionResult> OnGetAsync()
         {
-            Categories = _unitOfWork.ProductRepository.GetAll();
+            Categories = await _unitOfWork.CategoryRepository.GetAllAsync();
+            return Page();
         }
+       
     }
 }

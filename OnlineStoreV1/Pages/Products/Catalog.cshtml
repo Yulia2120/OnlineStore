@@ -81,13 +81,13 @@
                  <div class="col-xl-4 col-lg-6 col-md-6">
                       <div class="product-cart">
                           <div class="product-cart-image">
-                               <a href="#">
+                               <a asp-page="/Products/Details" asp-route-ID="@item.Id">
                                     <img @item.ImgUrl/>
                                </a>
                           </div>
                             <div class="product-cart-caption">
                                   <h4>
-                    <a href="#">@item.Name</a>
+                    <a asp-page="/Products/Details" asp-route-ID="@item.Id">@item.Name</a>
                   </h4>
                     <div class="availability yes">В наличии</div>
                     <div class="characteristics">
@@ -524,15 +524,13 @@
             <ul class="pagination">
             <li class="page-item">
               <a
-                href="https://skif-knives.com/shop/?page=1"
+                asp-page="/Products/Products"
                 class="page-link active"
-                >01</a
-              >
+                >01</a>
             </li>
             <li class="page-item">
-              <a href="https://skif-knives.com/shop/?page=2" class="page-link"
-                >02</a
-              >
+              <a asp-page="/Products/Products" class="page-link"
+                >02</a>
             </li>
             <li class="page-item">
               <a href="https://skif-knives.com/shop/?page=3" class="page-link"
