@@ -1,6 +1,7 @@
 using DAL;
 using Logic.Interfaces;
 using Logic.Services;
+using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,6 +16,7 @@ builder.Services.Configure<RouteOptions>(options =>
 });
 var connectionString = builder.Configuration.GetConnectionString("DbConnection");
 builder.Services.AddDbContext<Context>(options => options.UseSqlServer(connectionString));
+//builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<Context>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<ProductService>();
 builder.Services.AddScoped<UserService>();
