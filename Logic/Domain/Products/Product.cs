@@ -33,6 +33,6 @@ namespace Logic.Domain.Products
             }
         }
         public Category Category { get; set; } = null!;
-
+        
     }
 }

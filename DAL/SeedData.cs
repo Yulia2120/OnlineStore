@@ -1,9 +1,4 @@
 ﻿using Logic.Domain.Products;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DAL
 {
@@ -15,8 +10,8 @@ namespace DAL
             if (context.Products.Count() == 0 && context.Categories.Count() == 0)
             {
 
-                Category Knives = new Category { Name = "Складные ножи" };
-                Category Stock = new Category { Name = "Сток товаров" };
+                Category Knives = new Category { Name = "Складные ножи", Description ="Новое поколение" };
+                Category Stock = new Category { Name = "Сток товаров", Description = "Товары для искушенных" };
 
                 context.Products.AddRange(
                                 new Product
@@ -24,7 +19,7 @@ namespace DAL
                                     Name = "НОЖ SKIF ADVENTURE II BSW ORANGE",
                                     DescrLi = "Марка стали/Материал клинка: 9Cr18MoV",
                                     DescrLiSecond = "Материал накладки/рукояти: G-10",
-                                    ImgUrl = "https://ibb.co/myqzR2G",
+                                    ImgUrl = "https://i.ibb.co/xhyh8Sb/1-432x432.jpg",
                                     Price = 1600.00M,
                                     Quantity = 10,
                                     Description = "Нож SKIF Adventure II - это новое поколение одной из лучших моделей 400-й серии. " +
@@ -38,7 +33,7 @@ namespace DAL
                                     Name = "НОЖ SKIF ADVENTURE II SW ORANGE",
                                     DescrLi = "Марка стали/Материал клинка: 9Cr18MoV",
                                     DescrLiSecond = "Материал накладки/рукояти: G-10",
-                                    ImgUrl = "https://ibb.co/H4JhXjk",
+                                    ImgUrl = "https://i.ibb.co/YNb6gM1/2-432x432.jpg",
                                     Price = 1600.00M,
                                     Quantity = 7,
                                     Description = "Нож SKIF Adventure II - это новое поколение одной из лучших моделей 400-й серии." +
@@ -52,7 +47,7 @@ namespace DAL
                                     Name = "Нож SKIF Boy Black",
                                     DescrLi = "Марка стали/Материал клинка: 9Cr18MoV",
                                     DescrLiSecond = "Материал накладки/рукояти: G-10",
-                                    ImgUrl = "https://ibb.co/t8nNcLr",
+                                    ImgUrl = "https://i.ibb.co/3kgy7jh/3-432x432.jpg",
                                     Price = 903.00M,
                                     Quantity = 11,
                                     Description = "Boy – такое название получила новая модель торговой марки SKIF. Этот нож, предназначенный, в первую очередь, для ежедневного ношения, легко и быстро приводится в открытое положение одной рукой при помощи шпенька либо флиппера. Сам флиппер служит дополнительным упором." +
@@ -66,7 +61,7 @@ namespace DAL
                                     Name = "Нож SKIF Boy Olive",
                                     DescrLi = "Марка стали/Материал клинка: 9Cr18MoV",
                                     DescrLiSecond = "Материал накладки/рукояти: G-10",
-                                    ImgUrl = "https://ibb.co/ZVgGDRp",
+                                    ImgUrl = "https://i.ibb.co/F3KSPRc/4-432x432.jpg",
                                     Price = 903.00M,
                                     Quantity = 6,
                                     Description = "Boy – такое название получила новая модель торговой марки SKIF. Этот нож, предназначенный, в первую очередь, для ежедневного ношения, легко и быстро приводится в открытое положение одной рукой при помощи шпенька либо флиппера. " +
@@ -80,7 +75,7 @@ namespace DAL
                                     Name = "Нож SKIF Boy Orange",
                                     DescrLi = "Марка стали/Материал клинка: 9Cr18MoV",
                                     DescrLiSecond = "Материал накладки/рукояти: G-10",
-                                    ImgUrl = "https://ibb.co/ynkRnMM",
+                                    ImgUrl = "https://i.ibb.co/C0NZ1Rc/5-432x432.jpg",
                                     Price = 903.00M,
                                     Quantity = 10,
                                     Description = "Boy – такое название получила новая модель торговой марки SKIF. Этот нож, предназначенный, в первую очередь, для ежедневного ношения, легко и быстро приводится в открытое положение одной рукой при помощи шпенька либо флиппера. Сам флиппер служит дополнительным упором. " +
@@ -94,7 +89,7 @@ namespace DAL
                                     Name = "Нож SKIF Cutter Black",
                                     DescrLi = "Марка стали/Материал клинка: 9Cr18MoV",
                                     DescrLiSecond = "Материал накладки/рукояти: G-10",
-                                    ImgUrl = "https://ibb.co/RhyqT0j",
+                                    ImgUrl = "https://i.ibb.co/ScKGt40/6-432x432.jpg",
                                     Price = 903.00M,
                                     Quantity = 12,
                                     Description = "Название ножа Cutter (резак) полностью соответствует новой модели SKIF. Несмотря на компактные размеры – общая длина в открытом положении составляет 20 см – рабочая длина режущей кромки позволяет справится со всеми повседневными задачами. " +
@@ -108,7 +103,7 @@ namespace DAL
                                      Name = "Нож SKIF Cutter Olive",
                                      DescrLi = "Марка стали/Материал клинка: 9Cr18MoV",
                                      DescrLiSecond = "Материал накладки/рукояти: G-10",
-                                     ImgUrl = "https://ibb.co/BPSqKW4",
+                                     ImgUrl = "https://i.ibb.co/ZgdKMnF/7-432x432.jpg",
                                      Price = 903.00M,
                                      Quantity = 10,
                                      Description = "Название ножа Cutter (резак) полностью соответствует новой модели SKIF. Несмотря на компактные размеры – общая длина в открытом положении составляет 20 см – рабочая длина режущей кромки позволяет справится со всеми повседневными задачами." +
@@ -122,7 +117,7 @@ namespace DAL
                                       Name = "Нож SKIF Boy Orange",
                                       DescrLi = "Марка стали/Материал клинка: 9Cr18MoV",
                                       DescrLiSecond = "Материал накладки/рукояти: G-10",
-                                      ImgUrl = "https://ibb.co/ynkRnMM",
+                                      ImgUrl = "https://i.ibb.co/C0NZ1Rc/5-432x432.jpg",
                                       Price = 903.00M,
                                       Quantity = 10,
                                       Description = "Boy – такое название получила новая модель торговой марки SKIF. Этот нож, предназначенный, в первую очередь, для ежедневного ношения, легко и быстро приводится в открытое положение одной рукой при помощи шпенька либо флиппера. Сам флиппер служит дополнительным упором. " +
@@ -136,7 +131,7 @@ namespace DAL
                                       Name = "Нож SKIF Cutter Black",
                                       DescrLi = "Марка стали/Материал клинка: 9Cr18MoV",
                                       DescrLiSecond = "Материал накладки/рукояти: G-10",
-                                      ImgUrl = "https://ibb.co/RhyqT0j",
+                                      ImgUrl = "https://i.ibb.co/ScKGt40/6-432x432.jpg",
                                       Price = 903.00M,
                                       Quantity = 10,
                                       Description = "Название ножа Cutter (резак) полностью соответствует новой модели SKIF. Несмотря на компактные размеры – общая длина в открытом положении составляет 20 см – рабочая длина режущей кромки позволяет справится со всеми повседневными задачами." +
@@ -150,7 +145,7 @@ namespace DAL
                                       Name = "Нож SKIF Cutter Olive",
                                       DescrLi = "Марка стали/Материал клинка: 9Cr18MoV",
                                       DescrLiSecond = "Материал накладки/рукояти: G-10",
-                                      ImgUrl = "Нож SKIF Cutter Olive",
+                                      ImgUrl = "https://i.ibb.co/ZgdKMnF/7-432x432.jpg",
                                       Price = 903.00M,
                                       Quantity = 10,
                                       Description = "Название ножа Cutter (резак) полностью соответствует новой модели SKIF. Несмотря на компактные размеры – общая длина в открытом положении составляет 20 см – рабочая длина режущей кромки позволяет справится со всеми повседневными задачами." +
@@ -164,7 +159,7 @@ namespace DAL
                                       Name = "Нож SKIF Cutter Orange",
                                       DescrLi = "Марка стали/Материал клинка: 9Cr18MoV",
                                       DescrLiSecond = "Материал накладки/рукояти: G-10",
-                                      ImgUrl = "https://ibb.co/QM1rfjC",
+                                      ImgUrl = "https://i.ibb.co/TgXGY8K/11-432x432.jpg",
                                       Price = 903.00M,
                                       Quantity = 10,
                                       Description = "Название ножа Cutter (резак) полностью соответствует новой модели SKIF. Несмотря на компактные размеры – общая длина в открытом положении составляет 20 см – рабочая длина режущей кромки позволяет справится со всеми повседневными задачами." +
@@ -178,7 +173,7 @@ namespace DAL
                                       Name = "Нож SKIF Defender II SW Black",
                                       DescrLi = "Марка стали/Материал клинка: 9Cr18MoV",
                                       DescrLiSecond = "Материал накладки/рукояти: G-10",
-                                      ImgUrl = "https://ibb.co/tZYzYM1",
+                                      ImgUrl = "https://i.ibb.co/MZrnXD5/12-432x432.jpg",
                                       Price = 1600.00M,
                                       Quantity = 16,
                                       Description = "Нож SKIF Defender II относится к новому поколению одной из лучших моделей 400-й серии. " +

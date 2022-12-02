@@ -32,13 +32,16 @@
             <div class="aside-filter-menu">
               <h4>Категории</h4>
               <ul class="nav flex-column">
-               @foreach(var item in Model.Products)
+       @*        @{
+                   foreach(var item in Model.Categories)
         {
                 <li>
-                  <a href="#">@item.Category</a
+                  <a href="#">@item.Name</a
                   >
                 </li>
         }
+
+       }*@
               </ul>
             
             </div>
@@ -84,7 +87,7 @@
                       <div class="product-cart">
                           <div class="product-cart-image">
                                <a asp-page="/Products/Details" asp-route-ID="@item.Id">
-                                    <img @item.ImgUrl/>
+                                    <img src="@item.ImgUrl"/>
                                </a>
                           </div>
                             <div class="product-cart-caption">
@@ -535,42 +538,42 @@
                 >02</a>
             </li>
             <li class="page-item">
-              <a href="https://skif-knives.com/shop/?page=3" class="page-link"
+              <a href="#" class="page-link"
                 >03</a
               >
             </li>
             <li class="page-item">
-              <a href="https://skif-knives.com/shop/?page=4" class="page-link"
+              <a href="#" class="page-link"
                 >04</a
               >
             </li>
             <li class="page-item">
-              <a href="https://skif-knives.com/shop/?page=5" class="page-link"
+              <a href="#" class="page-link"
                 >05</a
               >
             </li>
             <li class="page-item">
-              <a href="https://skif-knives.com/shop/?page=6" class="page-link"
+              <a href="#" class="page-link"
                 >06</a
               >
             </li>
             <li class="page-item">
-              <a href="https://skif-knives.com/shop/?page=7" class="page-link"
+              <a href="#" class="page-link"
                 >07</a
               >
             </li>
             <li class="page-item">
-              <a href="https://skif-knives.com/shop/?page=8" class="page-link"
+              <a href="#" class="page-link"
                 >08</a
               >
             </li>
             <li class="page-item">
-              <a href="https://skif-knives.com/shop/?page=9" class="page-link"
+              <a href="#" class="page-link"
                 >09</a
               >
             </li>
             <li class="page-item next">
-              <a href="https://skif-knives.com/shop/?page=2" class="page-link"
+              <a href="#" class="page-link"
                 ><span></span
               ></a>
             </li>

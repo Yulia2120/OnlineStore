@@ -14,13 +14,14 @@ namespace OnlineStoreV1.Pages.Products
             _unitOfWork = unitOfWork;
         }
 
-     
+        public List<Category> Categories { get; private set; }
         public List<Product> Products { get; private set; }
-
+       
         public async Task<IActionResult> OnGetAsync()
         {
             Products = await _unitOfWork.ProductRepository.GetAllAsync();
             return Page();
         }
+        
     }
 }

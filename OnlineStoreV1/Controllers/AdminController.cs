@@ -16,14 +16,12 @@ namespace OnlineStoreV1.Controllers
             _ofWork = ofWork;
 
         }
+        [HttpGet]
         public async Task<IActionResult> IndexAsync()
         {
             Categories = await _ofWork.CategoryRepository.GetAllAsync();
             return View();
         }
-      
-        
-        
-
+       
     }
 }
