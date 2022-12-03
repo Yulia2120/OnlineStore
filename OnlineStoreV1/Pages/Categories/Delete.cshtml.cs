@@ -15,19 +15,35 @@ namespace OnlineStoreV1.Pages.Categories
         }
         [BindProperty]
         public Category Category { get; set; }
-        public void OnGet()
+        public async Task<IActionResult> OnGetAsync(int? id)
         {
-        }
-        public async Task<IActionResult> Delete(Category category)
-        {
-            await _unitOfWork.CategoryRepository.Find(Category.Id);
-            if (category == null)
+            if (id == null || id == 0)
             {
                 return NotFound();
             }
-            await _unitOfWork.CategoryRepository.DeleteAsync(category);
-            TempData["success"] = "Category deleted successfully";
-            return RedirectToAction("");
+            await _unitOfWork.CategoryRepository.Find(id);
+            if(id == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                Category = Category;
+            }
+            return Page();
+        }
+        public async Task<IActionResult> OnPostAsync(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            await _unitOfWork.CategoryRepository.Find(id);
+
+            await _unitOfWork.CategoryRepository.DeleteAsync(Category);
+
+            return RedirectToPage("./AdminPanel");
+
         }
     }
 }

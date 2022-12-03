@@ -53,8 +53,8 @@ app.UseCors(x => x
         .AllowAnyMethod()
         .AllowAnyHeader());
 
-//var context = app.Services.CreateScope().ServiceProvider.GetRequiredService<Context>();
-//SeedData.SeedDatabase(context);
+var context = app.Services.CreateScope().ServiceProvider.GetRequiredService<Context>();
+SeedData.SeedDatabase(context);
 app.Run();
 
 

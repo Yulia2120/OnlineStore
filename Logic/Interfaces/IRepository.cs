@@ -10,7 +10,7 @@
         Task<T> UpdateAsync(T item);
         Task<T> Find(int? id);
 
-        Task<bool> DeleteAsync(T item);
+        Task<T> DeleteAsync(T item);
 
     }
 }

@@ -11,6 +11,7 @@ namespace Logic.Domain.Products
             Products = new List<Product>();
 
         }
+        public new int  Id { get; set; }
         [Required]
         [StringLength(155)]
         public string? Name { get; set; }

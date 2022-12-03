@@ -6,12 +6,18 @@ namespace DAL.Repository
     public class Repository<T> : IRepository<T> where T : IIdentity
     {
         private Context _context;
-        private readonly int id;
+        private IUnitOfWork ofWork;
 
         public Repository(Context context)
         {
             _context = context;
         }
+
+        public Repository(IUnitOfWork ofWork)
+        {
+            this.ofWork = ofWork;
+        }
+
         public async Task<T> CreateAsync(T item)
         {
             await _context.Set<T>().AddAsync(item);
@@ -36,16 +42,13 @@ namespace DAL.Repository
             await _context.SaveChangesAsync();
             return item;
         }
-        public async Task<bool> DeleteAsync(T item)
+        public async Task<T> DeleteAsync(T item)
         {
-            //var result = await _context.Set<T>()
-            //  .FirstOrDefaultAsync(e => e.Id == id);
-            //if (item != null)
-            //{
+            
                 _context.Set<T>().Remove(item);
                 await _context.SaveChangesAsync();
-           // }
-            return true;
+            
+            return item;
         }
 
         public async Task<T> Find(int? id)

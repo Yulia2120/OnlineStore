@@ -4,6 +4,6 @@ namespace Logic.Interfaces
 {
     public interface ICategoryRepository: IRepository<Category>
     {
-
+       
     }
 }
