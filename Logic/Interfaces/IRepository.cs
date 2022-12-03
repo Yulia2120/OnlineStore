@@ -8,6 +8,7 @@
 
         Task<T> GetByIdAsync(int id);
         Task<T> UpdateAsync(T item);
+        Task<T> EditAsync(T item);
         Task<T> Find(int? id);
 
         Task<T> DeleteAsync(T item);

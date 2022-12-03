@@ -5,8 +5,8 @@ namespace DAL.Repository
 {
     public class Repository<T> : IRepository<T> where T : IIdentity
     {
-        private Context _context;
-        private IUnitOfWork ofWork;
+        public Context _context;
+        public IUnitOfWork _ofWork;
 
         public Repository(Context context)
         {
@@ -15,7 +15,7 @@ namespace DAL.Repository
 
         public Repository(IUnitOfWork ofWork)
         {
-            this.ofWork = ofWork;
+            _ofWork = ofWork;
         }
 
         public async Task<T> CreateAsync(T item)
@@ -40,6 +40,12 @@ namespace DAL.Repository
         {
             _context.Set<T>().Update(item);
             await _context.SaveChangesAsync();
+            return item;
+        }
+        public async Task<T> EditAsync(T item)
+        {
+            _context.Attach(item).State = EntityState.Modified;
+                await _context.SaveChangesAsync();
             return item;
         }
         public async Task<T> DeleteAsync(T item)
